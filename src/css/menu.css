@@ -1,0 +1,198 @@
+/* ===== Базові стилі меню ===== */
+.menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Спочатку приховано */
+    width: 100%;
+    height: 100vh;
+    background-color: var(--white);
+    background-image: url('../img/hero/decog_bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    pointer-events: none;
+    transition: right 0.4s ease;
+  }
+  
+  .menu.open {
+    right: 0;
+    pointer-events: auto;
+  }
+  
+  /* ===== Внутрішній контейнер меню ===== */
+  .menu-inner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+  }
+  
+  /* ===== Верхня панель меню: Лого + Хрестик ===== */
+  .menu-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 20px 0 20px;
+  }
+  
+  .logo {
+    font-family: 'Impact', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--black);
+  }
+  
+  .logo span {
+    color: var(--accet-green);
+  }
+  
+  .close-btn {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1001;
+  }
+  
+  .close-btn::before,
+  .close-btn::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: var(--black);
+    transition: background-color 0.3s ease;
+  }
+  
+  .close-btn::before {
+    transform: rotate(45deg);
+  }
+  
+  .close-btn::after {
+    transform: rotate(-45deg);
+  }
+  
+  /* ===== Навігація меню ===== */
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    flex-grow: 1;
+    justify-content: center;
+  }
+  
+  .menu-list a {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  
+  .menu-list a:hover {
+    color: var(--hover);
+  }
+  
+  /* ===== Кнопка ORDER (поки прихована на мобілці) ===== */
+  .order-btn {
+    padding: 16px 40px;
+    background-color: var(--accet-green);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--white);
+    cursor: pointer;
+    margin: 30px auto;
+    transition: background-color 0.3s ease;
+    display: block;
+  }
+  
+  .order-btn:hover {
+    background-color: var(--hover-green-dt);
+  }
+  
+  @media screen and (max-width: 767px) {
+    .menu {
+      display: flex;
+      right: -100%;
+      transition: right 0.4s ease;
+    }
+  
+    .order-btn {
+      display: none; /* Приховуємо на мобілці */
+    }
+  }
+  
+  /* ===== Темна тема через клас body.dark ===== */
+  body.dark .menu {
+    background-color: var(--black-dt);
+    color: var(--white-dt);
+  }
+  
+  body.dark .close-btn::before,
+  body.dark .close-btn::after {
+    background-color: var(--white-dt);
+  }
+  
+  body.dark .logo {
+    color: var(--white-dt);
+  }
+  
+  body.dark .logo span {
+    color: var(--accet-green-dt);
+  }
+  
+  body.dark .menu-list a {
+    color: var(--white-dt);
+  }
+  
+  body.dark .menu-list a:hover {
+    color: var(--hover-green-dt);
+  }
+  
+  /* ===== Світла тема через body без класу dark ===== */
+  body:not(.dark) .menu {
+    background-color: var(--white);
+    color: var(--black);
+  }
+  
+  body:not(.dark) .close-btn::before,
+  body:not(.dark) .close-btn::after {
+    background-color: var(--black);
+  }
+  
+  body:not(.dark) .logo {
+    color: var(--black);
+  }
+  
+  body:not(.dark) .logo span {
+    color: var(--accet-green);
+  }
+  
+  body:not(.dark) .menu-list a {
+    color: var(--black);
+  }
+  
+  body:not(.dark) .menu-list a:hover {
+    color: var(--hover);
+  }
+  
